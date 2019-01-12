@@ -38,7 +38,6 @@ public class Question03Activity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String danStr = v.getTag().toString();
-
                 int dan = Integer.parseInt(danStr);
 
                 String gugudanStr = "";
@@ -59,7 +58,19 @@ public class Question03Activity extends BaseActivity {
         sevenBtn.setOnClickListener(guguListener);
         eightBtn.setOnClickListener(guguListener);
         nineBtn.setOnClickListener(guguListener);
+        totalBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String resultStr = "";
 
+                for(int i=2;i<=9;i++){
+                    for(int j=1;j<=9;j++){
+                        resultStr += String.format("%d * %d = %d\n",i,j,i*j);
+                    }
+                }
+                resultTxt.setText(resultStr);
+            }
+        });
     }
 
     @Override
